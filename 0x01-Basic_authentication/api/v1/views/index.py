@@ -26,6 +26,15 @@ def stats() -> str:
     return jsonify(stats)
 
 
+@app_views.route('/forbidden', strict_slashes=False)
+def stats() -> str:
+    """ GET /api/v1/forbidden
+    Return:
+      - abort 403
+    """
+    abort(403)
+
+
 @app_views.route('/unauthorized', strict_slashes=False)
 def check() -> str:
     """ Get /api/v1/unauthorized
