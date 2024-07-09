@@ -27,7 +27,7 @@ def stats() -> str:
 
 
 @app_views.route('/forbidden', strict_slashes=False)
-def stats() -> str:
+def forbid() -> str:
     """ GET /api/v1/forbidden
     Return:
       - abort 403
