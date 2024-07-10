@@ -55,7 +55,7 @@ class BasicAuth(Auth):
     def user_object_from_credentials(
             self, user_email: str, user_pwd: str) -> TypeVar('User'):
         """ return user instance """
-        if user_email is None or user_pwd is None:
+        if user_email is None or type(user_email) is not str:
             return None
         new_list = User.search({'email': user_email})
         if len(new_list) <= 0:
@@ -72,4 +72,3 @@ class BasicAuth(Auth):
         decoded_text = self.decode_base64_authorization_header(encoded_text)
         user_data = self.extract_user_credentials(decoded_text)
         return self.user_object_from_credentials(user_data)
-
