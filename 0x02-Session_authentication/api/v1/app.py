@@ -22,6 +22,11 @@ if getenv("AUTH_TYPE") == "basic_auth":
     auth = BasicAuth()
 
 
+if getenv("AUTH_TYPE") == "session_auth":
+    from api.v1.auth.session_auth import SessionAuth
+    auth = SessionAuth()
+
+
 @app.errorhandler(404)
 def not_found(error) -> str:
     """ Not found handler
