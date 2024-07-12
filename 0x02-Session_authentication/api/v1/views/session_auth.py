@@ -11,11 +11,11 @@ def authicate():
     """ authicante the login """
     email_1 = request.form.get('email')
     if email_1 is None or len(email_1.strip()) == 0:
-        return jsonify({"error": "email_missing"}), 400
+        return jsonify({"error": "email missing"}), 400
 
     pwd_1 = request.form.get('password')
     if pwd_1 is None or len(pwd_1.strip()) == 0:
-        return jsonify({"error": "password_missing"}), 400
+        return jsonify({"error": "passwordmissing"}), 400
 
     try:
         new_list = User.search({'email': email_1})
