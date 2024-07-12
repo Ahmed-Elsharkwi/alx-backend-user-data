@@ -44,3 +44,4 @@ class SessionAuth(Auth):
             return False
 
         del SessionAuth.user_id_by_session_id[session_id]
+        return True

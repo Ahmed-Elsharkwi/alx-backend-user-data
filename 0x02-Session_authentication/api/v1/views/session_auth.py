@@ -15,7 +15,7 @@ def authicate():
 
     pwd_1 = request.form.get('password')
     if pwd_1 is None or len(pwd_1.strip()) == 0:
-        return jsonify({"error": "passwordmissing"}), 400
+        return jsonify({"error": "password missing"}), 400
 
     try:
         new_list = User.search({'email': email_1})
@@ -35,7 +35,9 @@ def authicate():
     user_dict.set_cookie(getenv("SESSION_NAME"), session_id)
     return user_dict
 
-@app_views.route("/auth_session/logout", methods=['DELETE'], strict_slashes=False)
+
+@app_views.route("/auth_session/logout", methods=[
+    'DELETE'], strict_slashes=False)
 def delete():
     """ log out the user """
     from api.v1.app import auth
