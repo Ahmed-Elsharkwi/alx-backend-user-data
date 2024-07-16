@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """DB module
 """
-import pymysql
-pymysql.install_as_MySQLdb()
+#import pymysql
+#pymysql.install_as_MySQLdb()
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -19,8 +19,8 @@ class DB:
     def __init__(self) -> None:
         """Initialize a new DB instance
         """
-        #self._engine = create_engine("sqlite:///a.db", echo=True)
-        self._engine = create_engine('mysql+mysqldb://zol:Amozol@localhost/Amozol',  pool_pre_ping=True)
+        self._engine = create_engine("sqlite:///a.db", echo=True)
+        #self._engine = create_engine('mysql+mysqldb://zol:Amozol@localhost/Amozol',  pool_pre_ping=True)
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         self.__session = None
