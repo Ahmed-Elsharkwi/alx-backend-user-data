@@ -37,7 +37,7 @@ class DB:
         session.commit()
         return new_user
 
-    def find_user_by(self, email: str) -> User:
+    def find_user_by(self, **kwargs) -> User:
         """ find user by his email """
-        data = session.query(User).filter(User.email == email).all()
+        data = session.query(User).filter(User.email == kwargs["email"]).all()
         return data
