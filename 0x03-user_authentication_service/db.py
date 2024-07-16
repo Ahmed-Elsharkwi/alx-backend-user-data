@@ -40,12 +40,15 @@ class DB:
         return new_user
 
     def find_user_by(self, **kwargs) -> User:
-        """ find user by his email """
-        all_users = self._session.query(User)
-        for k, v in kwargs.items():
-            if k not in User.__dict__:
-                raise InvalidRequestError
-            for usr in all_users:
-                if getattr(usr, k) == v:
-                    return usr
-        raise NoResultFound
+        """_summary_
+
+        Returns:
+            User: _description_
+        """
+        if not kwargs:
+            raise InvalidRequestError
+
+        user = self._session.query(User).filter_by(**kwargs).first()
+        if not user:
+            raise NoResultFound
+        return user
