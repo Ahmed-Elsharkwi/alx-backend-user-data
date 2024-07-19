@@ -9,6 +9,11 @@ from db import DB
 from user import User
 
 
+def _generate_uuid() -> str:
+    """ generate uuid and return it """
+    return str(uuid.uuid4())
+
+
 class Auth:
     """Auth class to interact with the authentication database.
     """
