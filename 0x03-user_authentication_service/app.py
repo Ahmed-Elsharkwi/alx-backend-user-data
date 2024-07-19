@@ -11,13 +11,13 @@ app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False, methods=['GET'])
-def reload():
+def reload() -> str:
     """ reload something """
     return jsonify({"message": "Bienvenue"})
 
 
 @app.route('/users', strict_slashes=False, methods=['POST'])
-def regiserter_user():
+def regiserter_user() -> str:
     """ register users """
     try:
         email = request.form.get('email')
