@@ -7,6 +7,7 @@ from sqlalchemy.exc import InvalidRequestError
 import bcrypt
 from db import DB
 from user import User
+import uuid
 
 
 def _generate_uuid() -> str:
